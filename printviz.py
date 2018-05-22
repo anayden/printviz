@@ -1,19 +1,18 @@
 #!/usr/bin/python
 
-import pysvg.structure
-import pysvg.builders
-
-shape_builder = pysvg.builders.ShapeBuilder()
+from pysvg.structure import *
+from pysvg.builders import *
 
 class Layout:
     def __init__(self, height, width):
-        self.shape_builder = pysvg.builders.ShapeBuilder()
-        self.doc = pysvg.structure.Svg()
+        self.shape_builder = ShapeBuilder()
+        self.doc = Svg()
         self.doc.addElement(self.shape_builder.createRect(0, 0, "%dpx" % height, "%dpx" % width,
                                                           strokewidth = 3))
 
     def add(self, x, y, h, w):
         self.doc.addElement(self.shape_builder.createRect(x, y, "%dpx" % h, "%dpx" % w))
+
     def save(self, filename):
         self.doc.save(filename)
 
