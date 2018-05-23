@@ -3,6 +3,8 @@
 from pysvg.structure import *
 from pysvg.builders import *
 
+DOTS_PER_CM = 2.8 # 2.8 dots per mm for screen @ 72dpi
+
 class Layout:
     def __init__(self, height, width):
         self.shape_builder = ShapeBuilder()
